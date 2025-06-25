@@ -14,15 +14,16 @@ def press_vk(vk_code):
 def main():
     hex_key_action = None
     try:
-        argument = sys.argv[1]
-        if argument == "IME_ON":
-            hex_key_action = IME_ON
-        elif argument == "IME_OFF":
-            hex_key_action = IME_OFF
-        else:
-            sys.exit(1)
+        arguments = sys.argv[1:]
+        for argument in arguments:
+            if argument == "IME_ON":
+                hex_key_action = IME_ON
+            elif argument == "IME_OFF":
+                hex_key_action = IME_OFF
+            else:
+                sys.exit(1)
 
-        press_vk(hex_key_action)
+            press_vk(hex_key_action)
 
     except IndexError:
         sys.exit(1)
